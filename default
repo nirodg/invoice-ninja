@@ -23,7 +23,8 @@ server {
 
 	location ~ \.php$ {
 	    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-	    fastcgi_pass localhost:9000;
+	    #fastcgi_pass localhost:9000;
+	    fastcgi_pass unix:/run/php/php7.0-fpm.sock;
 	    fastcgi_index index.php;
 	    include fastcgi_params;
 	    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
@@ -38,8 +39,8 @@ server {
 
 
 	# Enable SSL
-    ssl_certificate nginx.crt;
-    ssl_certificate_key nginx.key;
+    ssl_certificate /opt/ninja/nginx.crt;
+    ssl_certificate_key /opt/ninja/nginx.key;
     ssl_session_timeout 5m;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;

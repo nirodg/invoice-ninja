@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    image: nirodg/invoice-ninja:latest
+    image: nirodg/invoiceninja:latest
     ports:
       - 80:80
       - 443:443

@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-MAINTAINER "Dorin Brage" dorin.brage@gmail.com
+LABEL maintainer "Dorin Brage dorin.brage@gmail.com"
 
 # Install all needed packages
 RUN apt update 

@@ -7,7 +7,7 @@ Latest official branch dockerized with ssl, also providing a docker-compose.yaml
 Just run the following command and try to open http://localhost:80 or https://localhost on your browser.
 
 ```
-docker run -p 80:80 -p 443:443 nirodg/invoice-ninja
+docker run -p 80:80 -p 443:443 nirodg/invoiceninja
 ```
 
 ## docker-compose
@@ -25,9 +25,9 @@ docker run -p 80:80 -p 443:443 nirodg/invoice-ninja
 
 1. You might want to edit/configure the ```.env``` file under the ```/var/www/app/``` folder
 2. The SSL certificates are under the ```/opt/ninja/```
-
+3. The passphrase for the SSL is ```ninja```
 
 # Support
 Bugs on the invoiceninja app? Please go here https://github.com/invoiceninja/invoiceninja/issues
 
-Bugs on the docker container? Please go here https://github.com/nirodg/invoice-ninja/issues
+Bugs on the docker container? Please go here https://github.com/nirodg/invoiceninja/issues

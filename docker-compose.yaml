@@ -2,13 +2,23 @@ version: "3"
 
 services:
   app:
+    build: .
     image: nirodg/invoiceninja:latest
     ports:
       - 80:80
       - 443:443
     volumes:
       - ./ninja/storage:/var/www/app/storage:rw
+      #- .env://var/www/app/.env
       - ./ninja/logo:/var/www/app/public/logo:rw
+    environment:
+      DB_HOST: "db"
+      DB_DATABASE: "ninja"
+      DB_USERNAME: "ninja"
+      DB_PASSWORD: ninja
+      APP_LOCALE: "es"
+      APP_ENV: "local"
+      APP_URL: "localhost"
   db:
     image: mysql:5.7
     environment:
@@ -16,3 +26,9 @@ services:
       MYSQL_DATABASE: "ninja"
       MYSQL_USER: "ninja"
       MYSQL_PASSWORD: "ninja"
+    volumes:
+      - ./volumes/db/:/var/lib/mysql
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
